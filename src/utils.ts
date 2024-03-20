@@ -36,10 +36,9 @@ export function kvPairsToTreeObject(kvPairs: KVPair[]): TreeObject {
       }
 
       currentNode = currentNode[subKey];
-      console.log(currentPath, currentNode,subKey, kvPair)
     }
 
-    // set the node value
+    // 到底才會有 vlue
     currentNode[valueSymbol] = kvPair.value;
   }
 
