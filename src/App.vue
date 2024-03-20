@@ -106,7 +106,6 @@ function getEventTargetValue(event: Event) {
 
       //- key-value TREE
       div.flex-1.whitespace-nowrap.overflow-auto
-      div {{ treeObject }}
         KVTree.text-lg(
           :node="treeObject"
           :forceFolding="forceFolding"

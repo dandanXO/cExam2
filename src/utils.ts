@@ -10,9 +10,10 @@ export type TreeObject = {
 export type ForceFoldingType = "fold" | "unfold" | null;
 
 export function kvPairsToTreeObject(kvPairs: KVPair[]): TreeObject {
+  // 一個大OBJ
   const result: TreeObject = Object.create(null);
 
-  // 一個大OBJ
+  
   for (const kvPair of kvPairs) {
     // empty key 略
     if (kvPair.key === '') continue;
@@ -23,7 +24,7 @@ export function kvPairsToTreeObject(kvPairs: KVPair[]): TreeObject {
     // 有"."就可以地回
     for (const subKey of kvPair.key.split('.')) {
       currentPath += `.${subKey}`;
-
+     
       // make new TreeObject if necessary
       if (currentNode[subKey] === undefined) {
         const newNode: TreeObject = Object.create(null);
@@ -35,6 +36,7 @@ export function kvPairsToTreeObject(kvPairs: KVPair[]): TreeObject {
       }
 
       currentNode = currentNode[subKey];
+      console.log(currentPath, currentNode,subKey, kvPair)
     }
 
     // set the node value
