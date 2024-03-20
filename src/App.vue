@@ -108,7 +108,6 @@ function getEventTargetValue(event: Event) {
       div.flex-1.whitespace-nowrap.overflow-auto
         KVTree.text-lg(
           :node="treeObject"
-          :forceFolding="forceFolding"
         )
 
 </template>

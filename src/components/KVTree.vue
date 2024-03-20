@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import * as Vue from 'vue';
-import { Icon } from '@iconify/vue';
 import { pathSymbol, valueSymbol } from '@/symbol';
-import { type TreeObject, type ForceFoldingType } from '@/utils';
+import { type TreeObject } from '@/utils';
 
 const props = defineProps<{
   node: TreeObject;
-  forceFolding?: ForceFoldingType;
 }>();
 
 const foldedKeys = Vue.reactive(new Set<string>());
