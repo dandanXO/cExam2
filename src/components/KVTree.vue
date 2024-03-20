@@ -3,7 +3,7 @@ import * as Vue from 'vue';
 import { pathSymbol, valueSymbol } from '@/symbol';
 import { type TreeObject } from '@/utils';
 
-const props = defineProps<{
+defineProps<{
   node: TreeObject;
 }>();
 
@@ -24,14 +24,7 @@ function getFoldingIcon(k: string, v: TreeObject) {
   return foldedKeys.has(k) ? '+' : '-';
 }
 
-Vue.watch(() => props.forceFolding, (force) => {
-  // 全展開
-  if (force === 'fold') {
-    for (const key of Object.keys(props.node)) {
-      foldedKeys.add(key);
-    }
-  }
-});
+
 </script>
 
 <template lang="pug">
@@ -60,7 +53,6 @@ ul
     KVTree.pl-8(
       v-show="!foldedKeys.has(k)"
       :node="v"
-      :forceFolding="forceFolding"
     )
 
 </template>
